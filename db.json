@@ -1,0 +1,18 @@
+{
+  "beers": [
+    {
+      "name": "Mocny full",
+      "description": ":3",
+      "alcoholContent": 100,
+      "ibu": 30,
+      "id": 1
+    },
+    {
+      "name": "Rowing Jack",
+      "description": ":3",
+      "alcoholContent": 5.6,
+      "ibu": 90,
+      "id": 2
+    }
+  ]
+}

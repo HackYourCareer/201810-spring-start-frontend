@@ -1,0 +1,46 @@
+<app-alert [alertMessage]="alertMessage"></app-alert>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    <th scope="col">Description</th>
+    <th scope="col">Alcohol percentage</th>
+    <th scope="col">IBU</th>
+    <th scope="col">Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let beer of beers; index as i">
+    <th scope="row">{{i + 1}}</th>
+    <td>{{beer.name}}</td>
+    <td>{{beer.description}}</td>
+    <td>{{beer.alcoholContent}}</td>
+    <td>{{beer.ibu}}</td>
+    <td>
+        <span class="action">
+          <fa-icon (click)="openRemoveModal(beer, removeBeerModal)" [icon]="faTrash"></fa-icon>
+        </span>
+      <span class="action">
+          <a routerLink="/edit/{{beer.id}}" routerLinkActive="active">
+            <fa-icon [icon]="faEdit"></fa-icon>
+          </a>
+        </span>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+<ng-template #removeBeerModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" ngbAutofocus>Remove a beer</h4>
+  </div>
+  <div class="modal-body">
+    <p>Are you sure you want to remove '{{beerToRemove.name}}' a beer?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="removeBeer(modal)">Yes</button>
+    <button type="button" class="btn" (click)="closeBeerRemoveConfirmationModal(modal)">No</button>
+  </div>
+</ng-template>

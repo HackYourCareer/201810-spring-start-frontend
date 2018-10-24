@@ -1,0 +1,6 @@
+<app-alert [alertMessage]="alertMessage"></app-alert>
+<app-beer-form [beer]="currentBeer" (submit)="modifyBeer($event)" *ngIf="currentBeer != null; else error"></app-beer-form>
+
+<ng-template #error>
+  <h1 class="text-center">Beer not found!</h1>
+</ng-template>
